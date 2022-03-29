@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CST18013 - Welcome to my Spring Project</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
+    <script src= "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" ></script>
+</head>
+<body style="background-color: antiquewhite;">
+
+<header class="p-3 bg-dark text-white fixed-top">
+    <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                <li><a th:href="@{admin_home}" class="nav-link px-2 text-white">Home</a></li>
+                <li><a th:href="@{/doctors/new}" class="nav-link px-2 text-white">Add New Doctor</a></li>
+                <li><a th:href= "@{/doctors}" class="nav-link px-2 text-white">Manage Doctors</a></li>
+            </ul>
+
+            <div class="text-end">
+                <a class="h4" th:href="@{/logout}"><button type="button" class="btn btn-outline-warning me-2">LOGOUT</button></a>
+            </div>
+
+        </div>
+    </div>
+</header>
+
+<div class="container-fluid" align="center" style="margin-top: 120px;">
+    <div><h1><b>Manage Doctors</b></h1></div>
+    <div>
+        <h3><a th:href="@{/doctors/new}">Add New Doctor</a></h3>
+    </div>
+    <div th:if="${message}" class="alert alert-success text-center">
+        [[${message}]]
+    </div>
+    <br>
+    <div class="col col-11 d-flex" align = "center">
+        <table class="table table-hover">
+            <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Email</th>
+                <th>Full Name</th>
+                <th>Contact No</th>
+                <th>Qualifications</th>
+                <th>Category</th>
+                <th>Description</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <th:block th:each="doctor: ${listDoctors}">
+                <tr>
+                    <td>[[${doctor.id}]]</td>
+                    <td>[[${doctor.email}]]</td>
+                    <td>[[${doctor.firstName}]] [[${doctor.lastName}]]</td>
+                    <td>[[${doctor.telno}]]</td>
+                    <td>[[${doctor.qualifications}]]</td>
+                    <td>[[${doctor.doctorCategory.name}]]</td>
+                    <td>[[${doctor.description}]]</td>
+                    <td>
+                        <a class="h4 mr-3" th:href="@{'/doctors/edit/'+ ${doctor.id}}"> <button class="btn btn-outline-success"> Update </button></a>
+                        <a class="h4 mr-3" th:href="@{'/doctors/delete/'+ ${doctor.id}}"> <button class="btn btn-outline-danger"> Delete</button> </a>
+                    </td>
+                </tr>
+            </th:block>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>

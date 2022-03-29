@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>[[${pageTitle}]]</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
+    <script src= "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" ></script>
+
+    <style>
+        .astr{
+            color:red;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body  style="background-color: antiquewhite; ">
+
+<header class="p-3 bg-dark text-white fixed-top">
+    <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                <li><a th:href="@{/admin_home}" class="nav-link px-2 text-white">Home</a></li>
+                <li><a th:href="@{/doctors/new}" class="nav-link px-2 text-white">Add New Doctor</a></li>
+                <li><a th:href= "@{/doctors}" class="nav-link px-2 text-white">Manage Doctors</a></li>
+            </ul>
+
+            <div class="text-end">
+                <a class="h4" th:href="@{/logout}"><button type="button" class="btn btn-outline-warning me-2">LOGOUT</button></a>
+            </div>
+
+        </div>
+    </div>
+</header>
+
+<div class="container-fluid" align="center" style="margin-top: 120px;">
+
+    <div class="card col-6" style="background:transparent;">
+        <div class="card-header"> <h2 class="h2" align="center">
+            <b>[[${pageTitle}]]</b></h2> </div>
+        <form th:action="@{/doctor/save}" method="post" th:object="${doctor}"  class="col-12" style=" margin:0 auto;">
+            <input type="hidden" th:field="*{id}">
+            <div class="">
+                <div class="row form-group">
+                    <label class="col-sm-4 col-form-label" align="left">Email: <span class="astr">*</span></label>
+                    <div class="px-5">
+                        <input type="email" placeholder="abc@example.com" th:field="*{email}" class="form-control" required/>
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <label class="col-sm-4 col-form-label" align="left"> First Name: <span class="astr">*</span></label>
+                    <div class="px-5">
+                        <input type="text" pattern="^[A-Za-z \s*]+$" title="Should contain alphabet letters and space only" th:field="*{firstName}" class="form-control" required/>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <label class="col-sm-4 col-form-label" align="left"> Last Name: <span class="astr">*</span></label>
+                    <div class="px-5">
+                        <input type="text" pattern="^[A-Za-z \s*]+$" title="Should contain alphabet letters and space only" th:field="*{lastName}" class="form-control" required/>
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <label class="col-sm-4 col-form-label" align="left"> Contact No: <span class="astr">*</span></label>
+                    <div class="px-5">
+                        <input type="tel" pattern="[0-9]{10}" title="Should be 10 digits." th:field="*{telno}" class="form-control" required/>
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <label class="col-sm-4 col-form-label" align="left"> Qualifications: <span class="astr">*</span></label>
+                    <div class="px-5 text-left" >
+                        <th:block th:each="qualification:${listQualifications}" required >
+                            <div>
+                                <input type="checkbox" th:field="*{qualifications}"
+                                       th:text="${qualification.name}" th:value="${qualification.id}"/>
+                            </div>
+                        </th:block>
+
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <label class="col-sm-4 col-form-label" align="left"> Doctor Category: <span class="astr">*</span></label>
+                    <div class="px-5 text-left" >
+                        <select th:field="*{doctorCategory}" class="form-control" required>
+                            <th:block th:each="doctorCategory:${listDoctorCategories}">
+                                <option th:text="${doctorCategory.name}" th:value="${doctorCategory.id}"/>
+                            </th:block>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <label class="col-sm-4 col-form-label" align="left"> Description: <span class="astr">*</span></label>
+                    <div class="px-5">
+                        <textarea  th:field="*{description}" class="form-control" required/>
+                    </div>
+                </div>
+
+                <div th:if="!${id}" class="row form-group">
+                    <label class="col-sm-4 col-form-label" align="left"> Vehicle No: </label>
+                    <div class="px-5">
+                        <input type="text" th:field="*{vehicle.vehicleNo}" class="form-control" />
+                    </div>
+                </div>
+
+                <div th:if="!${id}" class="row form-group">
+                    <label class="col-sm-4 col-form-label" align="left"> Vehicle Model: </label>
+                    <div class="px-5">
+                        <input type="text" th:field="*{vehicle.vehicleModel}" class="form-control"/>
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <label th:if="!${id}" class="col-sm-4 col-form-label" align="left"> Password </label>
+                    <div class="px-5">
+                        <input th:if="!${id}" type="password" value="Abcd1234" class="form-control" readonly/>
+                    </div>
+                </div>
+
+                <div align="center" class="card-footer form-group" style="margin:50px 0; width:100%">
+                    <button th:if="!${id}" type="submit" class="col col-5 btn btn-primary" ><h4 class="h4">Save</h4></button>
+                    <button th:if="${id}" type="submit" class="col col-5 btn btn-info" ><h4 class="h4">Update</h4></button>
+                    <button type="button" class="col col-5 btn btn-secondary" onclick="cancelForm()"><h4 class="h4">Cancel</h4></button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function cancelForm(){
+        window.location="[[@{/doctors}]]" ;
+    }
+
+</script>
+</body>
+</html>

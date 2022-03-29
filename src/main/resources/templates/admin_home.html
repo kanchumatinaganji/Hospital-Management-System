@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>CST18013 - Welcome to my Spring Project</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
+    <script src= "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" ></script>
+</head>
+<style>
+    body{
+        background:linear-gradient(90deg, rgba(68,88,146,1) 0%, rgba(89,205,233,1) 100%) no-repeat center center fixed;;
+        background-size: cover;
+        /*background-image: url("/images/female_doctor_detail.png");
+        */
+    }
+</style>
+<body>
+
+<video autoplay muted loop id="bg-video" style="position: fixed; right: 0; bottom: 0; min-width: 100%; min-height: 100%;">
+    <source src="video1.mp4" type="video/mp4" />
+</video>
+
+<header class="p-3 bg-dark text-white fixed-top">
+    <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                <li><a th:href="@{/admin_home}" class="nav-link px-2 text-white">Home</a></li>
+                <li><a th:href="@{/doctors/new}" class="nav-link px-2 text-white">Add New Doctor</a></li>
+                <li><a th:href= "@{/doctors}" class="nav-link px-2 text-white">Manage Doctors</a></li>
+            </ul>
+
+            <div class="text-end">
+                <a class="h4" th:href="@{/logout}"><button type="button" class="btn btn-outline-warning me-2">LOGOUT</button></a>
+            </div>
+
+        </div>
+    </div>
+</header>
+
+<div class="container-fluid text-center" align="center" style="margin-top: 180px;">
+
+    <div class="card" style="opacity:90%;">
+        <div class="card-header">
+            <h3>Hello Admin!!!</h3>
+        </div>
+        <div class="card-body">
+            <h1>Welcome to our Menusha Hospital...</h1>
+        </div>
+    </div>
+</div>
+</div>
+</body>
+</html>

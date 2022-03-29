@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>CST18013 - Welcome to my Spring Project</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
+    <script src= "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" ></script>
+</head>
+<style>
+    body{
+        background:linear-gradient(90deg, rgba(68,88,146,1) 0%, rgba(89,205,233,1) 100%) no-repeat center center fixed;;
+        background-size: cover;
+        /*background-image: url("/images/female_doctor_detail.png");
+        */
+    }
+</style>
+<body>
+
+<video autoplay muted loop id="bg-video" style="position: fixed; right: 0; bottom: 0; min-width: 100%; min-height: 100%;">
+    <source src="video1.mp4" type="video/mp4" />
+</video>
+
+<header class="p-3 bg-dark text-white fixed-top">
+    <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                <li><a th:href= "@{/}" class="nav-link px-2 text-white">Home</a></li>
+                <li><a th:href= "@{/aboutus}" class="nav-link px-2 text-white">About Us</a></li>
+                <!--li><a href="#" class="nav-link px-2 text-white">Contact Us</a></li-->
+            </ul>
+
+            <div class="text-end">
+                <a class="h3" th:href= "@{/login}"><button type="button" class="btn btn-outline-warning me-2">LOGIN</button></a>
+            </div>
+
+        </div>
+    </div>
+</header>
+
+<div class="container-fluid text-center" align="center" style="margin-top: 100px;">
+    <h1 style="color:white"> About Us... </h1>
+    <!--how we do-->
+    <section id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12">
+                        <div class="col-md-12 col-sm-12 " style="text-align:left; color: white; padding-bottom: 10px">
+                            <h3 STYLE="font-family:Verdana;padding-bottom: 20px;align:center;padding-top: 50px">Quality of patient care...</h3>
+                            <h5>Menusha Hospital is committed to providing the safest and highest quality care to patients. We measure our performance against our own rigorous standards and compare the outcomes of our care with top medical centers nationwide in our effort to continually improve the care we provide. We believe that sharing our results with the public is an obligation and a critical factor in our mission of continuous improvement.</h5><br>
+                            <h5>At Menusha Hospital, we define optimal quality care as:</h5>
+                            <ui>
+                                <h5> <li>Superior care and outcomes</li></h5>
+                                <h5><li>Care delivered in a timely manner</li></h5>
+                                <h5><li>Outstanding patient safety</li></h5>
+                                <h5><li>Fair, unbiased access to health care</li></h5>
+                            </ui>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!--mission-->
+    <div class="body" style="padding-left: 130px;padding-right: 130px;padding-bottom: 40px;padding-top: 25px">
+        <div class="card-group">
+            <div class="card">
+                <div class="card-body" style="padding-top: 20px">
+                    <h5 class="card-title" align="center"> <i class="fa fa-paper-plane" aria-hidden="true"></i> <b>OUR MISSION</b> </h5>
+                    <p class="card-text">Our mission — the reason we exist is Caring, Healing, Teaching and Discovering.</p>
+                </div>
+            </div>
+            <div class="card">
+
+                <div class="card-body" style="padding-top: 20px">
+                    <h5 class="card-title" align="center"> <i class="fa fa-window-restore" aria-hidden="true"></i> <b>OUR VISION</b></h5>
+                    <p class="card-text">What we want to be — is to be the best provider of health care services, the best place to work and the best environment for teaching and research.</p>
+                </div>
+            </div>
+            <div class="card">
+
+                <div class="card-body">
+                    <h5 class="card-title"align="center"> <i class="fa fa-question-circle" aria-hidden="true"></i> <b>WHY US</b></h5>
+                    <p class="card-text">We collaborate with affiliated health systems to provide families with convenient access to highly specialized care.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

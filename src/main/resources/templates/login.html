@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>[[${pageTitle}]]</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
+    <script src= "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" ></script>
+</head>
+<body style="background-color: antiquewhite;">
+
+<header class="p-3 bg-dark text-white fixed-top">
+    <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                <li><a th:href= "@{'../'}" class="nav-link px-2 text-white">Home</a></li>
+                <li><a th:href= "@{/aboutus}" class="nav-link px-2 text-white">About Us</a></li>
+                <!--li><a href="#" class="nav-link px-2 text-white">Contact Us</a></li-->
+            </ul>
+
+            <div class="text-end">
+                <a class="h3" th:href= "@{/login}"><button type="button" class="btn btn-outline-warning me-2">LOGIN</button></a>
+            </div>
+
+        </div>
+    </div>
+</header>
+
+<div class="container-fluid" align="center" style="margin-top: 150px;">
+    <div class="card col-6" style="background:transparent;">
+        <div class="card-header"> <h2 class="h2" align="center"> LOGIN </h2> </div>
+        <form action="#" th:action="@{/login}" th:object="${user}" method="post" style=" margin:0 auto;">
+            <div class="">
+                <br>
+                <div class="alert alert-danger" role="alert" th:text="${error}" th:if="${error}"></div>
+
+                <div class="row form-group">
+                    <label class="col-sm-4 col-form-label" align="left">Email: </label>
+                    <div class="px-5">
+                        <input type="email" th:field="*{email}" th:class="form-control" placeholder="Enter Your Email" required/>
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <label class="col-sm-4 col-form-label" align="left"> Password: </label>
+                    <div class="px-5">
+                        <input type="password" th:field="*{password}"  class="form-control" placeholder="Enter Your Password" required/>
+                    </div>
+                </div>
+
+                <div align="center" class="card-footer form-group" style="margin:50px 0; width:100%">
+                    <button type="submit" class="col col-5 btn btn-primary" ><h4 class="h4">Login</h4></button>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>
+
