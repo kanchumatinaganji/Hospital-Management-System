@@ -4,3 +4,4 @@ This is a mini web project by using Spring Boot framework and Hibernate Technolo
 IDE: IntelliJ IDEA
 # HospitalManagement
 # HMS
+# HMS
