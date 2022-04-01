@@ -31,10 +31,12 @@ public class DoctorController {
 
     @GetMapping("/doctors")
     public String showDoctorList(Model model){
-
+    	System.out.println("--------showDoctorList--------- ");
         List<Doctor> listDoctors=docService.listAll();
+        System.out.println("------------------------ "+listDoctors.toString());
         model.addAttribute("listDoctors",listDoctors);
         List<DoctorCategory> listDoctorCategories=cat_repo.findAll();
+        System.out.println("------------------------ "+listDoctorCategories);
         model.addAttribute("listDoctorCategories",listDoctorCategories);
         return "doctors";
     }

@@ -47,23 +47,24 @@
                 <th>ID</th>
                 <th>Email</th>
                 <th>Full Name</th>
-                <th>Contact No</th>
+                 <th>Contact No</th>
                 <th>Qualifications</th>
-                <th>Category</th>
+                <!-- <th>Category</th> -->
                 <th>Description</th>
                 <th></th>
             </tr>
             </thead>
             <tbody>
             <th:block th:each="doctor: ${listDoctors}">
+            <th:block th:each="doctor2: ${listDoctorCategories}">
                 <tr>
                     <td>[[${doctor.id}]]</td>
                     <td>[[${doctor.email}]]</td>
                     <td>[[${doctor.firstName}]] [[${doctor.lastName}]]</td>
                     <td>[[${doctor.telno}]]</td>
-                    <td>[[${doctor.qualifications}]]</td>
-                    <td>[[${doctor.doctorCategory.name}]]</td>
-                    <td>[[${doctor.description}]]</td>
+                     <td>[[${doctor.qualifications}]]</td> 
+                   <!--  <td>[[${doctor.doctorCategory}]]</td> -->
+                     <td>[[${doctor.description}]]</td> 
                     <td>
                         <a class="h4 mr-3" th:href="@{'/doctors/edit/'+ ${doctor.id}}"> <button class="btn btn-outline-success"> Update </button></a>
                         <a class="h4 mr-3" th:href="@{'/doctors/delete/'+ ${doctor.id}}"> <button class="btn btn-outline-danger"> Delete</button> </a>
