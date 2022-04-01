@@ -8,11 +8,11 @@
         <version>2.6.2</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.uwu</groupId>
-    <artifactId>CST18013_Spring</artifactId>
+    <groupId>com.sageit</groupId>
+    <artifactId>HospitalManagement</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>CST18013_Spring</name>
-    <description>CST18013_Spring</description>
+    <name>HospitalManagement</name>
+    <description>HospitalManagement</description>
     <properties>
         <java.version>1.8</java.version>
     </properties>

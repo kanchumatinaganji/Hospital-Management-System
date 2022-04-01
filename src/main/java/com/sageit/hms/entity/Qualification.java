@@ -1,4 +1,4 @@
-package com.uwu.cst18013_spring.doctor.entity;
+package com.sageit.hms.entity;
 
 import lombok.NoArgsConstructor;
 

@@ -1,6 +1,4 @@
-package com.uwu.cst18013_spring.user;
-import com.uwu.cst18013_spring.user.User;
-
+package com.sageit.hms.user;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

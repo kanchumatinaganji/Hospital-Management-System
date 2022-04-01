@@ -1,16 +1,12 @@
-package com.uwu.cst18013_spring.user;
+package com.sageit.hms.user;
 import java.util.Objects;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-import com.uwu.cst18013_spring.user.User;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
@@ -25,6 +21,7 @@ public class UserController {
 
     @GetMapping("/login")
     public ModelAndView login() {
+    	System.out.println("login");
         ModelAndView mav = new ModelAndView("login");
         mav.addObject("user", new User());
         return mav;

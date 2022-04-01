@@ -1,15 +1,15 @@
-package com.uwu.cst18013_spring;
+package com.sageit.hms;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan(basePackages = "com.uwu.cst18013_spring") 
-public class CST18013_SpringApplication {
+@ComponentScan(basePackages = "com.sageit.hms") 
+public class HospitalManagementApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CST18013_SpringApplication.class, args);
+		SpringApplication.run(HospitalManagementApplication.class, args);
 	}
 
 }

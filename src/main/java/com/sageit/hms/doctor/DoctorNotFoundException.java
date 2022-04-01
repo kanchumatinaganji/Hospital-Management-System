@@ -1,4 +1,4 @@
-package com.uwu.cst18013_spring.doctor;
+package com.sageit.hms.doctor;
 
 public class DoctorNotFoundException extends Throwable {
     public DoctorNotFoundException(String message) {

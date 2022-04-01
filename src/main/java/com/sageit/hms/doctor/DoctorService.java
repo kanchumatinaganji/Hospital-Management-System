@@ -1,15 +1,14 @@
-package com.uwu.cst18013_spring.doctor;
-import com.uwu.cst18013_spring.doctor.entity.Qualification;
-import com.uwu.cst18013_spring.doctor.entity.Vehicle;
-import com.uwu.cst18013_spring.doctor.repo.QualificationRepository;
-import com.uwu.cst18013_spring.doctor.repo.VehicleRepository;
-import org.springframework.stereotype.Service;
-import com.uwu.cst18013_spring.doctor.entity.Doctor;
-import com.uwu.cst18013_spring.doctor.repo.DoctorRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-
+package com.sageit.hms.doctor;
 import java.util.List;
 import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.sageit.hms.doctor.repo.DoctorRepository;
+import com.sageit.hms.doctor.repo.QualificationRepository;
+import com.sageit.hms.doctor.repo.VehicleRepository;
+import com.sageit.hms.entity.Doctor;
 
 @Service
 public class DoctorService {

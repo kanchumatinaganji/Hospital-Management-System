@@ -1,6 +1,4 @@
-package com.uwu.cst18013_spring.user;
-import com.uwu.cst18013_spring.user.User;
-
+package com.sageit.hms.user;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

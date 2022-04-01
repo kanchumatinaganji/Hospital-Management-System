@@ -1,13 +1,7 @@
-package com.uwu.cst18013_spring.doctor;
+package com.sageit.hms.doctor;
 
-import com.uwu.cst18013_spring.doctor.entity.Doctor;
-import com.uwu.cst18013_spring.doctor.DoctorService;
-import com.uwu.cst18013_spring.doctor.entity.DoctorCategory;
-import com.uwu.cst18013_spring.doctor.entity.Qualification;
-import com.uwu.cst18013_spring.doctor.entity.Vehicle;
-import com.uwu.cst18013_spring.doctor.repo.DoctorCategoryRepository;
-import com.uwu.cst18013_spring.doctor.repo.QualificationRepository;
-import com.uwu.cst18013_spring.doctor.repo.VehicleRepository;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,7 +10,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import java.util.List;
+import com.sageit.hms.doctor.repo.DoctorCategoryRepository;
+import com.sageit.hms.doctor.repo.QualificationRepository;
+import com.sageit.hms.doctor.repo.VehicleRepository;
+import com.sageit.hms.entity.Doctor;
+import com.sageit.hms.entity.DoctorCategory;
+import com.sageit.hms.entity.Qualification;
 
 @Controller
 public class DoctorController {
